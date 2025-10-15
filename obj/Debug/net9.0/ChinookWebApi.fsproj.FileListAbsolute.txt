@@ -176,3 +176,4 @@ c:\Users\chril\source\fsrepos\ChinookWebApi\obj\Debug\net9.0\refint\ChinookWebAp
 c:\Users\chril\source\fsrepos\ChinookWebApi\obj\Debug\net9.0\ChinookWebApi.pdb
 c:\Users\chril\source\fsrepos\ChinookWebApi\obj\Debug\net9.0\ChinookWebApi.genruntimeconfig.cache
 c:\Users\chril\source\fsrepos\ChinookWebApi\obj\Debug\net9.0\ref\ChinookWebApi.dll
+C:\Users\chril\source\fsrepos\ChinookWebApi\obj\Debug\net9.0\ChinookWebApi.sourcelink.json

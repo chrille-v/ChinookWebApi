@@ -7,6 +7,6 @@ open System.ComponentModel.DataAnnotations.Schema
 [<CLIMutable>]
 type ArtistEntity = {
     [<Key>]
-    ArtistId: int option
+    ArtistId: int
     Name: string
 }

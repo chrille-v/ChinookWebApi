@@ -6,8 +6,8 @@ type ChinookContext(options: DbContextOptions<ChinookContext>) =
     inherit DbContext(options)
 
     [<DefaultValue>]
-    val mutable artist : DbSet<ArtistEntity>
+    val mutable Artist : DbSet<ArtistEntity>
 
-    member this.Artist
-        with get() = this.artist
-        and set v = this.artist <- v
+    member this.artist
+        with get() = this.Artist
+        and set v = this.Artist <- v

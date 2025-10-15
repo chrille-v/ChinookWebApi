@@ -15,15 +15,6 @@ open ChinookWebApi.Services
 type ArtistController (logger : ILogger<ArtistController>, service : ArtistFunctions) =
     inherit ControllerBase()
 
-    [<HttpPost>]
-    member this.Create(model : ArtistModel) =
-        task {
-            let! result = service.Create(model)
-            match result with
-            | Some artist-> this.Ok(artist)
-            | None -> this.NotFound() |> ignore
-        }
-
     [<HttpGet>]
     member this.Get() =
         task {
@@ -38,11 +29,15 @@ type ArtistController (logger : ILogger<ArtistController>, service : ArtistFunct
             let! result = service.GetById(id)
             match result with
             | Some artist -> this.Ok(artist)
-            | None -> this.NotFound() |> ignore 
-        } 
-        
-            
-        
-        
-        
+            | None -> this.NotFound()
+        }
 
+    [<HttpDelete("{id}")>]
+    member this.Delete(id: int) =
+        task {
+            let! result = service.Delete(id) |> Async.StartAsTask
+
+            match result with
+            | true -> this.Ok($"Artist with id {id} was deleted.") |> ignore
+            | false -> this.NotFound() |> ignore
+        }

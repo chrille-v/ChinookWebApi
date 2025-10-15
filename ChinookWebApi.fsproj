@@ -6,10 +6,8 @@
     <Compile Include="Entities.fs" />
     <Compile Include="Models/ArtistModel.fs" />
     <Compile Include="ChinookDbContext.fs" />
-    <Compile Include="WeatherForecast.fs" />
     <Compile Include="Services/ArtistService.fs" />
     <Compile Include="Controllers\ArtistController.fs" />
-    <Compile Include="Controllers/WeatherForecastController.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

@@ -10,7 +10,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("ChinookWebApi")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+144f7ab826c9cc76c9c17d32156644261da7c221")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("ChinookWebApi")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("ChinookWebApi")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]
