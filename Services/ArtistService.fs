@@ -20,10 +20,10 @@ module ArtistService =
                 fun () ->
                     async {
                     // Fetch all artists
-                    let! artists = context.Artist.ToListAsync() |> Async.AwaitTask
+                    let! (artists: List<ArtistEntity>) = context.Artist.ToListAsync() |> Async.AwaitTask
 
                     // Map to your model type
-                    let models =
+                    let models: ArtistModel list =
                         artists
                         |> Seq.map (fun a -> { ArtistId = a.ArtistId; Name = a.Name })
                         |> Seq.toList
@@ -34,13 +34,13 @@ module ArtistService =
             GetById = 
                 fun (id: int) -> 
                     async {
-                        let! artists = context.Artist.ToListAsync() |> Async.AwaitTask
-                        
+                        let! (artists: List<ArtistEntity>) = context.Artist.ToListAsync() |> Async.AwaitTask
+
                         let model = 
                             artists
                             |> Seq.toList
-                            |> List.map (fun x -> { ArtistId = x.ArtistId; Name = x.Name })
-                            |> List.tryFind (fun x -> x.ArtistId = id)
+                            |> List.map (fun (x: ArtistEntity) -> { ArtistId = x.ArtistId; Name = x.Name })
+                            |> List.tryFind (fun (x: ArtistModel) -> x.ArtistId = id)
 
                         return model
                     }
@@ -60,7 +60,7 @@ module ArtistService =
 
                         match entity with
                         | None -> return false
-                        | Some entity ->
+                        | Some (entity: ArtistEntity) ->
                             context.Artist.Remove(entity) |> ignore
                             let! _ = context.SaveChangesAsync() |> Async.AwaitTask
                             return true

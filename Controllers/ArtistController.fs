@@ -26,10 +26,11 @@ type ArtistController (logger : ILogger<ArtistController>, service : ArtistFunct
     [<HttpGet("{id}")>]
     member this.GetById(id) =
         task {
-            let! result = service.GetById(id)
+            let! (result: ArtistModel option) = service.GetById(id)
+
             match result with
-            | Some artist -> this.Ok(artist)
-            | None -> this.NotFound()
+            | Some artist -> return this.Ok(artist) :> IActionResult
+            | None -> return this.NotFound() :> IActionResult
         }
 
     [<HttpDelete("{id}")>]
